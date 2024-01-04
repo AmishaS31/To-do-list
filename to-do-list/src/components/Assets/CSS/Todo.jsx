@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import '../CSS/Todo.css'
 import Todoitems from './Todoitems';
 
-const Todo = ({no,display,text,setTodos}) => {
+const Todo = ({no,display,text}) => {
 
 const [todos,setTodos]=useState([]);
 const inputRef = useRef(null);
@@ -11,7 +11,7 @@ const inputRef = useRef(null);
 let count =0;
 const add = () =>{
     setTodos([...todos,{no:count++,text:inputRef.current.value,display:""}])
-  inputRef.current.value="";
+  inputRef.current.value = "";
   localStorage.setItem("todos_count",count)
 }
 
@@ -46,3 +46,54 @@ useEffect(()=>{
 }
 
 export default Todo
+
+
+
+// import { useEffect, useState, useRef } from 'react';
+// import '../CSS/Todo.css';
+// import Todoitems from './Todoitems';
+
+// const Todo = () => {
+//   const [todos, setTodos] = useState([]);
+//   const [count, setCount] = useState(0);
+//   const inputRef = useRef(null);
+
+//   const add = () => {
+//     setTodos([
+//       ...todos,
+//       { no: count, text: inputRef.current.value, display: '' }
+//     ]);
+//     inputRef.current.value = '';
+//     localStorage.setItem('todos_count', count + 1);
+//   };
+
+//   useEffect(() => {
+//     const storedTodos = JSON.parse(localStorage.getItem('todos'));
+//     setTodos(storedTodos || []);
+//     const storedCount = parseInt(localStorage.getItem('todos_count'), 10);
+//     setCount(storedCount || 0);
+//   }, []);
+
+//   useEffect(() => {
+//     setTimeout(() => {
+//       localStorage.setItem('todos', JSON.stringify(todos));
+//     }, 100);
+//   }, [todos]);
+
+//   return (
+//     <div className='todo'>
+//       <div className="todo-header">To-do List</div>
+//       <div className='todo-add'>
+//         <input ref={inputRef} type="text" placeholder='Add your Task' className='todo-input'></input>
+//         <div onClick={add} className="todo-add-btn">ADD</div>
+//       </div>
+//       <div className="todo-list">
+//         {todos.map((item, index) => (
+//           <Todoitems key={index} setTodos={setTodos} no={item.no} display={item.display} text={item.text} />
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Todo;

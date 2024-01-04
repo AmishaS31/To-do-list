@@ -1,9 +1,9 @@
-import './CSS/Todoitems.css'
+import '../../Assets/CSS/Todoitems.css';
 import tick from './components/Assets/tick.png'
-import not_tick from './components/Assets/not_tick.png'
-import cross from './components/Assets/cross.png'
+import not_tick from './components/Assets/not_tick.png';
+import cross from './components/Assets/cross.png';
 
-const Todoitems = ({no,display,text}) => {
+const Todoitems = ({no,display,text,setTodos}) => {
 
   const deleteTodo = (no) => {
     let data = JSON.parse(localStorage.getItem("todos"));
