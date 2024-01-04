@@ -14,3 +14,10 @@
     color: #404040;
     font-size: 22px;
 }
+.todoitems-cross-icon{
+    cursor: pointer;
+    padding-right: 25px;
+}
+.line-through{
+    text-decoration: line-through solid #ADADAD 3px;
+}

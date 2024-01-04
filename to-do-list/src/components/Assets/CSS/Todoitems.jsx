@@ -12,15 +12,19 @@ const Todoitems = ({no,display,text}) => {
       if(data[i].no===no){
           if(data[i].display===""){
             data[i].display="line-through";
-          }
+      }
+      else{
+        data[i].display="";
+      }
+      break;
       }
     }
-
+    setTodos(data);
   }
 
   return (
     <div className='todoitems'>
-      <div className='todoitems-container' onClick={()=>{toggle(no)}}>
+      <div className={'todoitems-container ${display}'} onClick={()=>{toggle(no)}}>
       {display===""?<img src={not_tick} alt=""/>:<img src={tick} alt=""/>}
       <div className='todoitems-text'>{text}</div>
       </div>
