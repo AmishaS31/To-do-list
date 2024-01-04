@@ -10,13 +10,22 @@ const inputRef = useRef(null);
 
 let count =0;
 const add = () =>{
-   
-  setTodos([...todos,{no:count++,text:inputRef.current.value,display:""}])
+    setTodos([...todos,{no:count++,text:inputRef.current.value,display:""}])
   inputRef.current.value="";
+  localStorage.setItem("todos_count",count)
 }
 
 useEffect(()=>{
-    console.log(todos);
+  setTodos(JSON.parsel(localStorage.getItem("todos")));
+  count=localStorage.getItem("todos_count")
+})
+
+useEffect(()=>{
+    
+    setTimeout(()=>{
+      console.log(todos);
+      localStorage.setItem("todos",JSON.stringify(todos));
+    },100);
 },[todos])
 
 

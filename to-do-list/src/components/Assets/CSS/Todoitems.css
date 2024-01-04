@@ -6,5 +6,11 @@
 }
 
 .todoitems-container{
-    
+    display: flex;
+}
+
+.todoitems-text{
+    padding-left: 16px;
+    color: #404040;
+    font-size: 22px;
 }
