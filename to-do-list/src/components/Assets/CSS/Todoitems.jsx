@@ -1,7 +1,7 @@
 import '../../Assets/CSS/Todoitems.css';
-import tick from './components/Assets/tick.png'
-import not_tick from './components/Assets/not_tick.png';
-import cross from './components/Assets/cross.png';
+import tick from "../../Assets/tick.png";
+import not_tick from "../../Assets/not_tick.png";
+import cross from "../../Assets/cross.png";
 
 const Todoitems = ({no,display,text,setTodos}) => {
 
